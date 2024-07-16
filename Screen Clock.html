@@ -1,0 +1,57 @@
+<!-- HTML Document -->
+<!-- 作者：公冶云枫 -->
+<!-- Author：Gyyunfeng -->
+<!-- 此文件在 GNU General Public License v3.0 的许可证下开源 -->
+<!-- This file is open-sourced under the GNU General Public License version 3.0. -->
+<!-- 官方开源地址：https://github.com/Gyyunfeng/Screen-Clock -->
+<!-- Official Open Source Address：https://github.com/Gyyunfeng/Screen-Clock -->
+<!-- 版本：1.0-Preview -->
+<!-- Version：1.0-Preview -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Clock</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            font-family: 'Segoe UI';
+            font-size: 20vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="root">
+        <div id="Clock">00:00:00</div>
+    </div>
+    <!-- 插入脚本控制时间更新 -->
+    <script>
+        // 定义函数 UpdateClock 用于更新时间
+        function UpdateClock() {
+            const Now = new Date();
+            const Hours = Now.getHours().toString().padStart(2, '0');
+            const Minutes = Now.getMinutes().toString().padStart(2, '0');
+            const Seconds = Now.getSeconds().toString().padStart(2, '0');
+
+            // 更新时间
+            document.getElementById('Clock').innerText = `${Hours}:${Minutes}:${Seconds}`;
+        }
+
+        // 进入页面更新时间
+        UpdateClock();
+
+        // 每秒更新一次时间
+        setInterval(UpdateClock, 1000);
+    </script>
+</body>
+
+</html>
